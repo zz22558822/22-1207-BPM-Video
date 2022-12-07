@@ -1,0 +1,176 @@
+@import 'reset';
+@import './mixin/RWD';
+
+$avinG:#059240;
+$avinG2 : #73d89a;
+
+html,body{
+  font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+  background: #2A2A2A;
+  &.AD-NoBar{
+    overflow: hidden;
+  }
+}
+
+
+.wrap{
+  max-width: 1024px;
+  margin: 0 auto;
+  // 漸層背景
+  background: #666;
+  background: -webkit-linear-gradient(0deg, rgb(176, 176, 176), rgb(153, 153, 153));
+  background: linear-gradient(0deg, rgb(176, 176, 176), rgb(153, 153, 153));
+  
+  position: relative;
+  /* 隱藏多餘防止破版的list-feature-border */
+	overflow: hidden;
+  a{
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  // 表頭
+  .header{
+
+    background: #000;
+    width: 100%;
+
+    @media(max-width:767px){
+      position: fixed;
+      z-index: 10;
+    }
+    @media(max-width:414px){
+      // 讓flex logo對齊置中
+      flex-direction: column;
+      padding-right: 0;
+    }
+
+    // position: absolute;
+    h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a{
+        width: 260px;
+        height: 62px;
+        margin: 10px 15px;
+        background: url(../images/logo.png) no-repeat;
+        // RWD background IMG wh
+        background-size:contain;
+
+        // 圖片代替文字
+        display: block; // a轉區塊
+        text-indent: 101%; // 縮排101%讓h1超出區塊
+        overflow: hidden; // 隱藏超出內容
+        white-space: nowrap; // 讓文字不自動換行
+        background-repeat: no-repeat; // 讓圖片不重複
+        background-position: center; // 讓圖片對齊中心
+
+
+        @media(max-width:767px){
+          width: 150px;
+          margin: 5px 10px;
+        }
+        @media(max-width:414px){
+          width: 180px;
+        }
+        &:hover{
+          // background: url(../images/資安系統-黃色透明背景.png) no-repeat;
+          // 圖片代替文字
+          display: block; // a轉區塊
+          text-indent: 101%; // 縮排101%讓h1超出區塊
+          overflow: hidden; // 隱藏超出內容
+          white-space: nowrap; // 讓文字不自動換行
+          background-repeat: no-repeat; // 讓圖片不重複
+          background-position: center; // 讓圖片對齊中心
+          transform: scale(1.1);
+          // opacity: 0.9;
+        }
+      }
+    }
+
+  }
+
+  // 內容
+  .container{
+
+    // min-height: 818px;
+    // padding: 20px;
+    color: $avinG;
+
+    @media(max-width:767px){
+      margin-top: 75px;
+    }
+    @media(max-width:414px){
+      padding: 10px;
+    }
+    h2{
+      display: flex;
+      justify-content: center;
+      span{
+        font-size: 48px;
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px 50px;
+        font-weight: bold;
+        display: inline-block;
+        border: #059240 3px solid;
+        background: #EEE;
+      }
+    }
+
+    .video{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      video{
+        width: 90%;
+        // margin: 5px 20px 20px;
+      }
+      h3{
+        display: flex;
+        justify-content: center;
+        color: #000;
+        margin-bottom: 5px;
+        span{
+          font-size: 32px;
+          text-align: center;
+          margin-top: 20px;
+          padding-top: 15px;
+          font-weight: bold;
+          display: inline-block;
+        }
+      }
+    }
+
+
+
+  }
+
+  // 表尾
+  .footer{
+    text-align: center;
+    padding: 10px;
+    background: #000;
+    color: #FFF;
+    position: relative;
+
+    h3{
+      display: inline-block;
+      @media(max-width:460px){
+        padding-right: 70px;  
+      }
+      @media(max-width:414px){
+        display: block;
+        padding: 0;
+      }
+    }
+  }
+
+
+}
+
+
+

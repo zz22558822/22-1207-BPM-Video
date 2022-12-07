@@ -1,0 +1,386 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 讓圖片自適應容器最大寬度 高度自動 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 全域設定 border box */
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*---------------------------------------*/
+/* Pure 開始*/
+/* button核心 */
+.pure-button {
+  /* Structure */
+  display: inline-block;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Firefox: Get rid of the inner focus border */
+.pure-button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* Inherit .pure-g styles */
+.pure-button-group {
+  letter-spacing: -0.31em;
+  /* Webkit: collapse white-space between units */
+  text-rendering: optimizespeed;
+  /* Webkit: fixes text-rendering: optimizeLegibility */
+}
+
+.opera-only :-o-prefocus,
+.pure-button-group {
+  word-spacing: -0.43em;
+}
+
+.pure-button-group .pure-button {
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+}
+
+/* button子模組 */
+/*csslint outline-none:false*/
+.pure-button {
+  font-family: inherit;
+  font-size: 100%;
+  padding: 0.5em 1em;
+  color: rgba(0, 0, 0, 0.8);
+  border: none rgba(0, 0, 0, 0);
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.pure-button-hover,
+.pure-button:hover,
+.pure-button:focus {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.1)));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+
+.pure-button:focus {
+  outline: 0;
+}
+
+.pure-button-active,
+.pure-button:active {
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+  border-color: #000;
+}
+
+.pure-button[disabled],
+.pure-button-disabled,
+.pure-button-disabled:hover,
+.pure-button-disabled:focus,
+.pure-button-disabled:active {
+  border: none;
+  background-image: none;
+  opacity: 0.40;
+  cursor: not-allowed;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  pointer-events: none;
+}
+
+.pure-button-hidden {
+  display: none;
+}
+
+.pure-button-primary,
+.pure-button-selected,
+a.pure-button-primary,
+a.pure-button-selected {
+  background-color: #0078e7;
+  color: #fff;
+}
+
+/* Button Groups */
+.pure-button-group .pure-button {
+  margin: 0;
+  border-radius: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.pure-button-group .pure-button:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.pure-button-group .pure-button:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-right: none;
+}
+
+/* Pure 結束 */
+/* RWD用 */
+html, body {
+  font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+  background: #2A2A2A;
+}
+
+html.AD-NoBar, body.AD-NoBar {
+  overflow: hidden;
+}
+
+.wrap {
+  max-width: 1024px;
+  margin: 0 auto;
+  background: #666;
+  background: -webkit-gradient(linear, left bottom, left top, from(#b0b0b0), to(#999999));
+  background: linear-gradient(0deg, #b0b0b0, #999999);
+  position: relative;
+  /* 隱藏多餘防止破版的list-feature-border */
+  overflow: hidden;
+}
+
+.wrap a {
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.wrap .header {
+  background: #000;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .wrap .header {
+    position: fixed;
+    z-index: 10;
+  }
+}
+
+@media (max-width: 414px) {
+  .wrap .header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-right: 0;
+  }
+}
+
+.wrap .header h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrap .header h1 a {
+  width: 260px;
+  height: 62px;
+  margin: 10px 15px;
+  background: url(../images/logo.png) no-repeat;
+  background-size: contain;
+  display: block;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 767px) {
+  .wrap .header h1 a {
+    width: 150px;
+    margin: 5px 10px;
+  }
+}
+
+@media (max-width: 414px) {
+  .wrap .header h1 a {
+    width: 180px;
+  }
+}
+
+.wrap .header h1 a:hover {
+  display: block;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.wrap .container {
+  color: #059240;
+}
+
+@media (max-width: 767px) {
+  .wrap .container {
+    margin-top: 75px;
+  }
+}
+
+@media (max-width: 414px) {
+  .wrap .container {
+    padding: 10px;
+  }
+}
+
+.wrap .container h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrap .container h2 span {
+  font-size: 48px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 50px;
+  font-weight: bold;
+  display: inline-block;
+  border: #059240 3px solid;
+  background: #EEE;
+}
+
+.wrap .container .video {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.wrap .container .video video {
+  width: 90%;
+}
+
+.wrap .container .video h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.wrap .container .video h3 span {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.wrap .footer {
+  text-align: center;
+  padding: 10px;
+  background: #000;
+  color: #FFF;
+  position: relative;
+}
+
+.wrap .footer h3 {
+  display: inline-block;
+}
+
+@media (max-width: 460px) {
+  .wrap .footer h3 {
+    padding-right: 70px;
+  }
+}
+
+@media (max-width: 414px) {
+  .wrap .footer h3 {
+    display: block;
+    padding: 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */
